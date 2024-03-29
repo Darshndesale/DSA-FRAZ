@@ -10,24 +10,45 @@ using namespace std;
 //     else return false;
 // }
 
-class bianrysearch{
-    public:
-    void solve() {
-        cout << "hi";
+// write the comparator function and try different things to it
+bool comp(int a, int b) {
+    // if a come before b the return 1
+
+    if(a > b) { // in which the a is greaer so we pick for making reverse sorted array
+        return true;
     }
-};
+
+    return false;
+}
+
+bool string_sort(char a, char b)
+{
+    return a > b;
+}
 int main() 
 {
-    // int n= 4;
-    // int arr[] = {4, 1, 3, 2};
-    // sort(arr, arr+n);
+    
+    vector<int> arr = {3,4,1,2,7,65,5};
 
-    // for(int i=0; i<n; i++) {
-    //     cout << arr[i] << ' ';
-    // }
+    sort(arr.begin(), arr.end(), comp);
 
-    bianrysearch b;
-    b.solve();
+    for(int i=0; i<arr.size(); i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << "\n";
+    // we can sort by our choice custome comparator
+    /*
+        cases
+        - negative if e1 to come before the e2 in sorting
+        - positive if e1 to come after the e2 in sorting
+        - zero if it is equals
 
+    */
+
+    // my name string
+    string s = "darshan";
+    sort(s.begin(), s.end(), string_sort);
+    cout<< s;
     return 0;
 }
